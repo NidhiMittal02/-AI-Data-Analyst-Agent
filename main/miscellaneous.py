@@ -5,12 +5,8 @@ from langchain_experimental.tools.python.tool import PythonREPLTool
 from langchain.agents import Tool
 from langchain.memory import ConversationBufferMemory
 
-if 'VERCEL' in os.environ:
-    from main.llm import AIPipeLLM
-    from main.utils.main import listoftools
-else:
-    from llm import AIPipeLLM
-    from utils.main import listoftools
+from main.llm import AIPipeLLM
+from main.utils.main import listoftools
 
 
 # ---------------------------------------

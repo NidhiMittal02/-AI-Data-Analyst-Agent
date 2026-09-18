@@ -1,4 +1,4 @@
-from data_context import get_dataframe
+from main.data_context import get_dataframe
 
 
 def calculate_total(column):

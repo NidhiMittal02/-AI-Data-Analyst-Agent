@@ -15,20 +15,19 @@ from flask import (
 from flask_cors import CORS
 from flasgger import Swagger
 
-from groq_client import Groq
-from miscellaneous import ask_agent
+from main.groq_client import Groq
+from main.miscellaneous import ask_agent
 
-from data_profiler import profile_dataframe
+from main.data_profiler import profile_dataframe
 
-from data_context import (
+from main.data_context import (
     set_dataframe,
     get_dataframe
 )
 
-from analysis_engine import analyze_question
+from main.analysis_engine import analyze_question
 
-from visualization import create_bar_chart
-
+from main.visualization import create_bar_chart
 
 # ============================================================
 # PATHS

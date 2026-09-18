@@ -1,8 +1,8 @@
-from data_context import get_dataframe
+from main.data_context import get_dataframe
 
 import re
 
-from utils.tools.analysis_tools import (
+from main.utils.tools.analysis_tools import  (
     calculate_total,
     calculate_average,
     calculate_minimum,
