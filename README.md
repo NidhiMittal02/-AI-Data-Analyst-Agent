@@ -1,66 +1,118 @@
-# 📊 Data Analyst Agent
+# 🤖 AI Data Analyst Agent
 
-A **prompt-driven Data Analysis Agent** built as part of the **TDS Course (IIT Madras)**.
-The agent processes user prompts, performs **intelligent data analysis**, and provides insights using a combination of **LangChain**, **Groq API**, **AI Pipe API**, and **Perplexity API**.
+An AI-powered data analysis web application that allows users to upload datasets and ask analytical questions in natural language.
 
----
-
-## ✨ Features
-
-* 🧠 **Prompt-Based Analysis** – Just describe your requirement in plain language.
-* 🔗 **LangChain Integration** – Orchestrates data retrieval, processing, and LLM responses.
-* ⚡ **Groq API** – High-speed inference for large language model queries.
-* 🔍 **AI Pipe API** – Custom AI pipeline integration for advanced analytics.
-* 📚 **Perplexity API** – Augments analysis with up-to-date web information.
-* 📈 **Data Insights** – Summaries, trends, and visualizations.
+The application automatically profiles the uploaded dataset, checks data quality, performs reliable numerical analysis using Pandas, generates visualizations, and provides answers to analytical questions without requiring the user to write Python or SQL queries.
 
 ---
 
-## Screenshots
+## 🚀 Live Demo
 
-<img width="1846" height="935" alt="image" src="https://github.com/user-attachments/assets/b406d4e2-a7f3-4a85-bf87-870bcdb02bca" />
-
----
-
-## 🛠️ Tech Stack
-
-* **Python**
-* **LangChain**
-* **Pandas, NumPy, Matplotlib** (for analysis & visualization)
+🌐 **Live Application:**  
+https://ai-data-analyst-agent-mocha.vercel.app/
 
 ---
 
-## 📦 Installation
+## 📌 Project Overview
 
-```bash
->> git clone https://github.com/OmAmar106/Data-Analyst-Agent-TDS-Project.git
->> cd Data-Analyst-Agent-TDS-Project
-```
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-```bash
-pip install -r requirements.txt
-# Set up API keys in .env file
+Data analysis often requires users to understand programming languages, SQL, or spreadsheet formulas before they can extract useful insights from their data.
 
-python main/app.py
-```
+The **AI Data Analyst Agent** simplifies this process by allowing users to interact with their datasets using natural language.
+
+Users can:
+
+- Upload CSV or Excel datasets
+- Automatically inspect the dataset
+- View data quality information
+- Ask questions in natural language
+- Calculate totals, averages, minimums, and maximums
+- Compare values across categories
+- Find top-performing products or categories
+- Calculate unique values and row counts
+- Generate charts automatically
+- Receive AI-assisted analytical responses
+
+The goal is to provide a simple interface where users can interact with data as if they were asking questions to a data analyst.
 
 ---
 
-## 🚀 Usage
+# ✨ Features
 
-* Enter your **prompt** (e.g., *"Scrape the list of highest grossing films from Wikipedia and tell the highest grossing film."*)
-* The agent:
-  1. Parses the prompt
-  2. Retrieves & processes data
-  3. Generates insights & visualizations
-  4. Returns a natural language summary
+## 📂 1. Dataset Upload
 
-## 🔌 API
+The application supports common structured data formats:
 
-- **Endpoint**: `/analyze`
-- **Method**: `POST`
-- **Expected Input**:
-  - `question`: string
+- CSV
+- Excel (`.xlsx`)
+- Excel (`.xls`)
+
+After uploading a dataset, the application automatically loads it into Pandas for analysis.
+
+---
+
+## 🔍 2. Automatic Data Profiling
+
+The system automatically analyzes the uploaded dataset and identifies:
+
+- Number of rows
+- Number of columns
+- Column names
+- Data types
+- Missing values
+- Unique values
+- Duplicate rows
+- Empty columns
+- Numerical statistics
+
+This provides an initial understanding of the dataset before analysis begins.
+
+---
+
+## 🧹 3. Data Quality Analysis
+
+The application checks the uploaded dataset for common quality issues such as:
+
+- Missing values
+- Duplicate rows
+- Completely empty columns
+- Dataset structure
+- Numerical column statistics
+
+This helps identify potential data problems before drawing conclusions.
+
+---
+
+## 📊 4. Reliable Data Analysis
+
+The application uses Pandas-based analysis functions for numerical calculations.
+
+Supported operations include:
+
+- Total / Sum
+- Average / Mean
+- Minimum
+- Maximum
+- Row count
+- Unique count
+- Grouped totals
+- Grouped averages
+- Top-N analysis
+
+Example questions:
+
+```text
+What is the total sales?
+
+What is the average sales?
+
+What is the maximum sales?
+
+How many rows are there?
+
+How many unique products are there?
+
+Show total sales by product.
+
+Show average sales by product.
+
+Show the top 2 products by sales.
