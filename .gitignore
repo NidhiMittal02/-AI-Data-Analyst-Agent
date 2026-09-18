@@ -1,0 +1,13 @@
+.venv/
+.env
+plan.md
+__pycache__/
+*.pyc
+
+.vscode/
+
+uploads/
+static/charts/
+
+test_data.csv
+main/test_data.csv

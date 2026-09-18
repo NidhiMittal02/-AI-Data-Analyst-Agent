@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nexus AI Analyst</title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+
+    <!-- Phosphor Icons -->
+
+    <script
+        src="https://unpkg.com/@phosphor-icons/web"
+    ></script>
+
+
+    <!-- Highlight.js -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+    >
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+
+        <!-- HEADER -->
+
+        <header class="glass-header">
+
+            <div class="logo">
+
+                <i class="ph ph-sparkle"></i>
+
+                <h1>
+                    Nexus AI Analyst
+                </h1>
+
+            </div>
+
+
+            <div class="badge">
+                v1.0
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <main class="dashboard">
+
+
+            <!-- LEFT PANEL -->
+
+            <section class="input-section glass-panel">
+
+
+                <div class="section-header">
+
+                    <h2>
+
+                        <i class="ph ph-chat-teardrop-text"></i>
+
+                        Prompt & Data
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label for="prompt">
+                        What would you like to analyze?
+                    </label>
+
+
+                    <textarea
+                        id="prompt"
+                        placeholder="e.g. Show total Sales by Product"
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- UPLOAD -->
+
+                <div
+                    class="upload-area"
+                    id="drop-zone"
+                >
+
+                    <div class="upload-content">
+
+                        <i class="ph ph-upload-simple"></i>
+
+                        <p class="upload-title">
+                            Click to upload or drag and drop
+                        </p>
+
+                        <p class="upload-subtitle">
+                            CSV, Excel, Images, TXT, MD
+                        </p>
+
+                    </div>
+
+
+                    <input
+                        type="file"
+                        id="file-upload"
+                        multiple
+                        hidden
+                    >
+
+                </div>
+
+
+
+                <!-- FILE LIST -->
+
+                <div
+                    class="file-list"
+                    id="file-list"
+                ></div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    id="analyze-btn"
+                    class="primary-btn"
+                    type="button"
+                >
+
+                    <span class="btn-text">
+                        Run Analysis
+                    </span>
+
+
+                    <i class="ph ph-arrow-right"></i>
+
+
+                    <div
+                        class="loader-spinner"
+                        style="display: none;"
+                    ></div>
+
+                </button>
+
+            </section>
+
+
+
+            <!-- RIGHT PANEL -->
+
+            <section
+                class="output-section glass-panel"
+            >
+
+
+                <div class="section-header">
+
+                    <h2>
+
+                        <i class="ph ph-terminal-window"></i>
+
+                        Output
+
+                    </h2>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="icon-btn"
+                            id="copy-btn"
+                            type="button"
+                            title="Copy Output"
+                        >
+
+                            <i class="ph ph-copy"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JAVASCRIPT OUTPUT -->
+
+                <div
+                    class="analysis-output"
+                    id="output-area"
+                >
+
+                    <div class="empty-state">
+
+                        <i class="ph ph-planet"></i>
+
+                        <p>
+                            Awaiting your analysis request...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        src="{{ url_for('static', filename='app.js') }}"
+    ></script>
+
+</body>
+
+</html>
