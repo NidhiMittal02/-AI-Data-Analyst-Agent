@@ -2,7 +2,7 @@
 
 An AI-powered data analysis web application that allows users to upload datasets and ask analytical questions in natural language.
 
-The application automatically profiles the uploaded dataset, checks data quality, performs reliable numerical analysis using Pandas, generates visualizations, and provides answers to analytical questions without requiring the user to write Python or SQL queries.
+The application automatically profiles the uploaded dataset, checks data quality, performs reliable numerical analysis using Pandas, generates visualizations, and provides AI-assisted analytical responses.
 
 ---
 
@@ -15,44 +15,35 @@ https://ai-data-analyst-agent-mocha.vercel.app/
 
 ## 📌 Project Overview
 
-Data analysis often requires users to understand programming languages, SQL, or spreadsheet formulas before they can extract useful insights from their data.
+Data analysis often requires knowledge of Python, SQL, or spreadsheet formulas. The **AI Data Analyst Agent** simplifies this process by allowing users to interact with their datasets using natural language.
 
-The **AI Data Analyst Agent** simplifies this process by allowing users to interact with their datasets using natural language.
+Users can upload a CSV or Excel file and ask questions such as:
 
-Users can:
+> "What is the total sales?"
 
-- Upload CSV or Excel datasets
-- Automatically inspect the dataset
-- View data quality information
-- Ask questions in natural language
-- Calculate totals, averages, minimums, and maximums
-- Compare values across categories
-- Find top-performing products or categories
-- Calculate unique values and row counts
-- Generate charts automatically
-- Receive AI-assisted analytical responses
+> "Show total sales by product."
 
-The goal is to provide a simple interface where users can interact with data as if they were asking questions to a data analyst.
+> "Show the top 2 products by sales."
+
+The application interprets the analytical question, performs calculations on the uploaded dataset, and presents the result in an understandable format.
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-## 📂 1. Dataset Upload
+### 📂 Dataset Upload
 
-The application supports common structured data formats:
+Supports:
 
-- CSV
-- Excel (`.xlsx`)
-- Excel (`.xls`)
-
-After uploading a dataset, the application automatically loads it into Pandas for analysis.
+- CSV files
+- Excel `.xlsx` files
+- Excel `.xls` files
 
 ---
 
-## 🔍 2. Automatic Data Profiling
+### 🔍 Automatic Data Profiling
 
-The system automatically analyzes the uploaded dataset and identifies:
+The application automatically analyzes the uploaded dataset and provides information about:
 
 - Number of rows
 - Number of columns
@@ -64,27 +55,23 @@ The system automatically analyzes the uploaded dataset and identifies:
 - Empty columns
 - Numerical statistics
 
-This provides an initial understanding of the dataset before analysis begins.
-
 ---
 
-## 🧹 3. Data Quality Analysis
+### 🧹 Data Quality Analysis
 
-The application checks the uploaded dataset for common quality issues such as:
+The system checks the dataset for common data-quality issues, including:
 
 - Missing values
 - Duplicate rows
 - Completely empty columns
-- Dataset structure
-- Numerical column statistics
-
-This helps identify potential data problems before drawing conclusions.
+- Data types
+- Numerical statistics
 
 ---
 
-## 📊 4. Reliable Data Analysis
+### 📊 Reliable Data Analysis
 
-The application uses Pandas-based analysis functions for numerical calculations.
+The application uses Pandas-based analytical functions for numerical calculations.
 
 Supported operations include:
 
@@ -98,21 +85,13 @@ Supported operations include:
 - Grouped averages
 - Top-N analysis
 
-Example questions:
+---
+
+### 🗣️ Natural Language Queries
+
+Users can ask analytical questions without knowing Python or SQL.
+
+Examples:
 
 ```text
 What is the total sales?
-
-What is the average sales?
-
-What is the maximum sales?
-
-How many rows are there?
-
-How many unique products are there?
-
-Show total sales by product.
-
-Show average sales by product.
-
-Show the top 2 products by sales.
