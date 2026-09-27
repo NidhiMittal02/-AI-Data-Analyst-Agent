@@ -1,4 +1,5 @@
-import os
+import io
+import base64
 
 import matplotlib
 
@@ -18,8 +19,8 @@ def create_bar_chart(
     """
     Create a bar chart showing total values by category.
 
-    If limit is provided, only the top N categories
-    are displayed.
+    The chart is returned as a base64 data URL
+    so it works in serverless environments such as Vercel.
     """
 
     # Group the data
@@ -50,43 +51,29 @@ def create_bar_chart(
 
     plt.tight_layout()
 
-    # Make sure chart directory exists
-    chart_directory = os.path.join(
-        "static",
-        "charts"
-    )
+    # Store the image in memory instead of saving it
+    # to the Vercel filesystem.
+    image_buffer = io.BytesIO()
 
-    os.makedirs(
-        chart_directory,
-        exist_ok=True
-    )
-
-    # Create filename
-    if limit is not None:
-        filename = (
-            f"{category_column}_"
-            f"{value_column}_"
-            f"top_{limit}_bar.png"
-        )
-    else:
-        filename = (
-            f"{category_column}_"
-            f"{value_column}_"
-            f"bar.png"
-        )
-
-    chart_path = os.path.join(
-        chart_directory,
-        filename
-    )
-
-    # Save chart
     plt.savefig(
-        chart_path,
+        image_buffer,
+        format="png",
         dpi=150,
         bbox_inches="tight"
     )
 
     plt.close()
 
-    return chart_path
+    # Move to the beginning of the buffer
+    image_buffer.seek(0)
+
+    # Convert image bytes to base64
+    image_base64 = base64.b64encode(
+        image_buffer.getvalue()
+    ).decode("utf-8")
+
+    # Return a browser-ready image
+    return (
+        "data:image/png;base64,"
+        + image_base64
+    )

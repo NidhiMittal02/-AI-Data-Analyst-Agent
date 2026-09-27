@@ -611,9 +611,18 @@ document.addEventListener('DOMContentLoaded', () => {
          * Prevent browser caching.
          */
 
-        imageUrl +=
-            '?t=' +
-            Date.now();
+       /*
+ * Prevent browser caching for normal image URLs.
+ *
+ * Data URLs must not receive a query parameter
+ * because they contain the image data directly.
+ */
+
+        if (!imageUrl.startsWith('data:image/')) {
+            imageUrl +=
+                '?t=' +
+                Date.now();
+        }
 
 
         image.src =
